@@ -1,0 +1,12 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+<p>MyPage 
+<p><%= link_to "レンジ作成", new_span_path %></p>
+  <% @user.spans.each do |span| %>
+      <p><%= link_to span.name, span_path(span) %></p>
+      <%=  "ペアは#{span.high_pair}から#{span.low_pair}が含まれます"%>
+  <% end %>
+  
+
+
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

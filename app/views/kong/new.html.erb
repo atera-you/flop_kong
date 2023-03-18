@@ -1,0 +1,16 @@
+    <%= form_with(yrl: kong_new_path, local: true) do |f| %>
+      <%= f.label :name %>
+      <%= f.select :name, [['sample1', 1], ['sample2', 2], ['sample3', 3]] %>
+
+      <%= f.label :email %>
+      <%= f.email_field :user %> 
+
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
