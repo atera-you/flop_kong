@@ -1,6 +1,7 @@
-
-<%=  @span.name %><br>
-<p><%= link_to "パターンを計算する", calculation_span_path(@span) %></p>
+<h1 class="text-center mb-5"><%=  @span.name %></h1>
+<p><%= link_to "パターンを計算する", calculation_span_path(@span), class: "btn btn-primary" %></p>
 <%=  "ペアは#{@high_pair}から#{@low_pair}が含まれます"%><br>
 <%= safe_join restore_s(@high_suit, @low_suit), "<br>".html_safe %><br>
 <%= safe_join restore_o(@high_offsuit, @low_offsuit), "<br>".html_safe %><br>
+<%= button_to '削除', span_path(@span), method: :delete,class: "btn btn-danger", data: { confirm: "本当に削除しますか？" } %>
+<%= link_to "マイページに戻る", user_path(current_user) %>

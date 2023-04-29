@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :span do
     member do
       get 'calculation'
+      post 'result'
+      get 'show_result'
     end
   end
-  post '/span/:id/calculation', to: 'span#result'
-  
+
 end

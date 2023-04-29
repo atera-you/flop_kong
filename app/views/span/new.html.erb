@@ -1,162 +1,158 @@
-<h1>"レンジの登録"</h1>
+<h1 class="text-center mb-5">レンジの登録</h1>
 <%= form_with(model: @span,url:span_index_path,local:true) do |f|%>
   <%= f.label :name %>
-  <%= f.text_field :name %>
-
+  <%= f.text_field :name, required: true %>
+  <br>
   <%= f.label "high_pair[]","レンジ内の最も高いペアを選んでください"%>
   <%= f.select :high_pair, [["ペアをレンジに含めない","0"],["AA","1"],["KK","d"],["QQ","c"],["JJ","b"],["TT","a"],[99,"9"],[88,"8"],[77,"7"],[66,"6"],[55,"5"],[44,"4"],[33,"3"],[22,"2"]]%>
-
+  <br>
   <%= f.label "low_pair[]","レンジ内の最も低いペアを選んでください"%>
   <%= f.select :low_pair, [["ペアをレンジに含めない","0"],["AA","1"],["KK","d"],["QQ","c"],["JJ","b"],["TT","a"],[99,"9"],[88,"8"],[77,"7"],[66,"6"],[55,"5"],[44,"4"],[33,"3"],[22,"2"]]%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高いAxsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["Axsをレンジに含めない","0"],["K","d"],["Q","c"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の最も低いAxsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["Axsをレンジに含めない","0"],["K","d"],["Q","c"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高いKxsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["Kxsをレンジに含めない","0"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の低いKxsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["Kxsをレンジに含めない","0"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高いQxsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["Qxsをレンジに含めない","0"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の最も低いQxsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["Qxsをレンジに含めない","0"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高いJxsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["Jxsをレンジに含めない","0"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の最も低いJxsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["Jxsをレンジに含めない","0"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高いTxsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["Txsをレンジに含めない","0"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の最も低いTxsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["Txsをレンジに含めない","0"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高い9xsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["9xsをレンジに含めない","0"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の最も低い9xsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["9xsをレンジに含めない","0"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高い8xsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["8xsをレンジに含めない","0"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の最も低い8xsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["8xsをレンジに含めない","0"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高い7xsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["7xsをレンジに含めない","0"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の最も低い7xsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["7xsをレンジに含めない","0"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高い6xsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["6xsをレンジに含めない","0"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の最も低い6xsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["6xsをレンジに含めない","0"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高い5xsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["5xsをレンジに含めない","0"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の最も低い5xsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["5xsをレンジに含めない","0"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高い4xsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["4xsをレンジに含めない","0"],[3,"3"],[2,"2"]],:selected => @span.high_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の最も低い4xsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["4xsをレンジに含めない","0"],[3,"3"],[2,"2"]],:selected => @span.low_suit)%>
-
+  <br>
   <%= f.label "high_suit[]","レンジ内の最も高い3xsのxを選んでください"%>
   <%= select_tag "span[high_suit][]", options_for_select([["3xsをレンジに含めない","0"],[2,"2"]],:selected => @span.high_suit)%>
-
+  <br>
   <%= f.label "low_suit[]","レンジ内の最も低い3xsのxを選んでください"%>
   <%= select_tag "span[low_suit][]", options_for_select([["3xsをレンジに含めない","0"],[2,"2"]],:selected => @span.low_suit)%>
-
-
-
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高いAxoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["Axsをレンジに含めない","0"],["K","d"],["Q","c"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_offsuit)%>
-
+  <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低いAxoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["Axsをレンジに含めない","0"],["K","d"],["Q","c"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_offsuit)%>
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高いKxoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["Kxsをレンジに含めない","0"],["Q","c"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_offsuit)%>
-
-  <%= f.label "low_offsuit[]","レンジ内の低いKxoのxを選んでください"%>
+  <br>
+  <%= f.label "low_offsuit[]","レンジ内の最も低いKxoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["Kxsをレンジに含めない","0"],["Q","c"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_offsuit)%>
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高いQxoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["Qxsをレンジに含めない","0"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_offsuit)%>
-
+  <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低いQxoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["Qxsをレンジに含めない","0"],["J","b"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_offsuit)%>
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高いJxoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["Jxsをレンジに含めない","0"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_offsuit)%>
-
+  <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低いJxoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["Jxsをレンジに含めない","0"],["T","a"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_offsuit)%>
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高いTxoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["Txsをレンジに含めない","0"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_offsuit)%>
-
+  <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低いTxoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["Txsをレンジに含めない","0"],[9,"9"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_offsuit)%>
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高い9xoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["9xsをレンジに含めない","0"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_offsuit)%>
-
+  <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低い9xoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["9xsをレンジに含めない","0"],[8,"8"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_offsuit)%>
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高い8xoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["8xsをレンジに含めない","0"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_offsuit)%>
-
+  <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低い8xoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["8xsをレンジに含めない","0"],[7,"7"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_offsuit)%>
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高い7xoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["7xsをレンジに含めない","0"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_offsuit)%>
-
+  <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低い7xoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["7xsをレンジに含めない","0"],[6,"6"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_offsuit)%>
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高い6xoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["6xsをレンジに含めない","0"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_offsuit)%>
-
+  <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低い6xoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["6xsをレンジに含めない","0"],[5,"5"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_offsuit)%>
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高い5xoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["5xsをレンジに含めない","0"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.high_offsuit)%>
-
+  <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低い5xoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["5xsをレンジに含めない","0"],[4,"4"],[3,"3"],[2,"2"]],:selected => @span.low_offsuit)%>
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高い4xoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["4xsをレンジに含めない","0"],[3,"3"],[2,"2"]],:selected => @span.high_offsuit)%>
-
+  <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低い4xoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["4xsをレンジに含めない","0"],[3,"3"],[2,"2"]],:selected => @span.low_offsuit)%>
-
+  <br>
   <%= f.label "high_offsuit[]","レンジ内の最も高い3xoのxを選んでください"%>
   <%= select_tag "span[high_offsuit][]", options_for_select([["3xsをレンジに含めない","0"],[2,"2"]],:selected => @span.high_offsuit)%>
-
+  <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低い3xoのxを選んでください"%>
   <%= select_tag "span[low_offsuit][]", options_for_select([["A3sをレンジに含めない","0"],[2,"2"]],:selected => @span.low_offsuit)%>
-
-  
+  <br>
   <%= f.submit "Create my range", class: "btn btn-primary" %>
 
   <% end %>

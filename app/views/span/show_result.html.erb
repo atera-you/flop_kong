@@ -1,0 +1,5 @@
+<h1 class="text-center mb-5">計算結果</h1>
+<h5 class="card-title">フィールドカード</h5>
+<p class="card-text"><%= restore_f(@field) %></p>
+<%= safe_join show_result(@result), "<br>".html_safe %><br>
+<%= link_to "マイページに戻る", user_path(current_user), class: "btn btn-primary" %>
