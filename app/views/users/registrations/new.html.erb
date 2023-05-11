@@ -1,24 +1,26 @@
-<h2>Sign up</h2>
+<%= stylesheet_link_tag "custom", media: "all" %>
+<h2>新規登録</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-signup" }) do |f| %>
 <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="form-floating mb-3">
-    <%= f.label :email, "Email", class: "form-label" %>
+    <%= f.label :email, "メールアドレス", class: "form-label over-text" %>
+    <em>(@マークの前後に文字があれば登録できます)</em>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
   <div class="form-floating mb-3">
-    <%= f.label :password, "Password", class: "form-label" %>
+    <%= f.label :password, "パスワード", class: "form-label over-text" %>
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= @minimum_password_length %> 文字以上で設定してください)</em>
     <% end %>
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
   </div>
   <div class="form-floating mb-3">
-    <%= f.label :password_confirmation, "Password confirmation", class: "form-label" %>
+    <%= f.label :password_confirmation, "パスワードの確認", class: "form-label over-text" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
   <div class="text-center">
-    <%= f.submit "Sign up", class: "btn btn-primary btn-lg" %>
+    <%= f.submit "登録", class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
 <%= render "users/shared/links" %>

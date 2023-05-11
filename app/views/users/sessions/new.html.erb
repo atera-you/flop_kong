@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "custom", media: "all" %>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -6,19 +7,19 @@
         <div class="card-body">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="form-group">
-              <%= f.label :email %>
+              <%= f.label :email, "メールアドレス",class: "over-text" %>
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
             </div>
 
             <div class="form-group">
-              <%= f.label :password %>
+              <%= f.label :password, "パスワード",class: "over-text"%>
               <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
             </div>
 
             <% if devise_mapping.rememberable? %>
               <div class="form-group">
                 <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
+                <%= f.label :remember_me, "remember me",class: "over-text" %>
               </div>
             <% end %>
 

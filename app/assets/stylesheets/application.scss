@@ -13,3 +13,23 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.right {
+  float: right;
+}
+body {
+  background-image: url('/assets/bg.jpg');
+  background-size: cover;
+}
+
+h1 {
+  color: white;
+}
+
+h3 {
+  color: white;
+}
+.white-text{
+  color: white;
+  margin-left: 10px;
+}

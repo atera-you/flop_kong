@@ -1,5 +1,5 @@
 {
-  "name": "demo_kong",
+  "name":"flop_kong",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",

@@ -2,9 +2,7 @@
 <p><%= link_to "レンジ作成", new_span_path, class: "btn btn-primary mb-3"  %></p>
 <h3>作成したレンジ</h3>
   <% @user.spans.each do |span| %>
-      <p><%= link_to span.name, span_path(span) %></p>
+      <h3><%= link_to "・" + span.name, span_path(span) %></h3>
   <% end %>
   
-
-
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
