@@ -17,7 +17,6 @@ class SpanController < ApplicationController
     @span[:span] = span_data.to_json
     @span.save
     redirect_to user_path(current_user)
-
   end
 
   def show

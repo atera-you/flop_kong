@@ -151,7 +151,7 @@
   <%= select_tag "span[high_offsuit][]", options_for_select([["3xsをレンジに含めない","0"],[2,"2"]],:selected => @span.high_offsuit)%>
   <br>
   <%= f.label "low_offsuit[]","レンジ内の最も低い3xoのxを選んでください",class:"white-text"%>
-  <%= select_tag "span[low_offsuit][]", options_for_select([["A3sをレンジに含めない","0"],[2,"2"]],:selected => @span.low_offsuit)%>
+  <%= select_tag "span[low_offsuit][]", options_for_select([["3xsをレンジに含めない","0"],[2,"2"]],:selected => @span.low_offsuit)%>
   <br>
   <%= f.submit "Create range", class: "btn btn-primary" %>
   <% end %>
