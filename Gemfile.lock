@@ -137,8 +137,6 @@ GEM
     nokogiri (1.13.10)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.10-x86_64-linux)
-      racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.3)
     public_suffix (5.0.1)
@@ -237,9 +235,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.5.4)
-      mini_portile2 (~> 2.8.0)
-    sqlite3 (1.5.4-x86_64-linux)
+    sqlite3 (1.4.4)
     thor (1.2.2)
     thread_safe (0.3.6)
     tilt (2.1.0)
@@ -273,7 +269,6 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
@@ -294,7 +289,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
+  sqlite3 (< 1.5)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
