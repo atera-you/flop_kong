@@ -14,8 +14,8 @@ class SpanController < ApplicationController
     num_sum = selection(high_suit,low_suit)
     offsuit_sum = selection(high_offsuit,low_offsuit)
     span_data = []
-    span_data = span_data.concat(pair(@span[:high_pair],@span[:low_pair]),suit(num_sum),offsuit(offsuit_sum))
-    @span[:span] = span_data.to_json
+    span_data = span_data.concat(pair(@span[:high_pair].to_s,@span[:low_pair].to_s),suit(num_sum),offsuit(offsuit_sum))
+    @span[:span] = "c"
     @span.save
     redirect_to user_path(current_user)
   end
