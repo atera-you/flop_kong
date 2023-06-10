@@ -1,0 +1,20 @@
+databases:
+  - name: <flop_kong_production>
+    databaseName: <flop_kong_production>
+    user: <設定したユーザー名>
+    region: singapore
+
+services:
+  - type: web
+    name: <flop_kong>
+    env: ruby
+    region: singapore
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: <%= ENV['DATABASE_URL'] %>
+        fromDatabase:
+          name: render_app
+          property: connectionString
+      - key: <%= ENV['RAILS_MASTER_KEY'] %>
+        sync: false
