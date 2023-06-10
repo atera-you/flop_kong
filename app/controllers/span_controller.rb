@@ -7,10 +7,10 @@ class SpanController < ApplicationController
   def create
     
     @span = current_user.spans.build(span_params)
-    high_suit = JSON.parse(@span[:high_suit].gsub("\\",""))
-    low_suit = JSON.parse(@span[:low_suit].gsub("\\",""))
-    high_offsuit = JSON.parse(@span[:high_offsuit].gsub("\\",""))
-    low_offsuit = JSON.parse(@span[:low_offsuit].gsub("\\",""))
+    high_suit = JSON.parse(@span[:high_suit].to_s.gsub("\\",""))
+    low_suit = JSON.parse(@span[:low_suit].to_s.gsub("\\",""))
+    high_offsuit = JSON.parse(@span[:high_offsuit].to_s.gsub("\\",""))
+    low_offsuit = JSON.parse(@span[:low_offsuit].to_s.gsub("\\",""))
     num_sum = selection(high_suit,low_suit)
     offsuit_sum = selection(high_offsuit,low_offsuit)
     span_data = []
@@ -22,12 +22,12 @@ class SpanController < ApplicationController
 
   def show
     @span = Span.find(params[:id])
-    @high_pair = a_gsub(@span.high_pair)
-    @low_pair = a_gsub(@span.low_pair)
-    @high_suit = a_gsub(@span.high_suit)
-    @low_suit = a_gsub(@span.low_suit)
-    @high_offsuit = a_gsub(@span.high_offsuit)
-    @low_offsuit = a_gsub(@span.low_offsuit)
+    @high_pair = a_gsub(@span.high_pair.to_s)
+    @low_pair = a_gsub(@span.low_pair.to_s)
+    @high_suit = a_gsub(@span.high_suit.to_s)
+    @low_suit = a_gsub(@span.low_suit.to_s)
+    @high_offsuit = a_gsub(@span.high_offsuit.to_s)
+    @low_offsuit = a_gsub(@span.low_offsuit.to_s)
 
   end
 
@@ -39,7 +39,7 @@ class SpanController < ApplicationController
     @cal = cal_params
     @span = Span.find(params[:id])
     field = "#{@cal[:card_1].reverse.join}#{@cal[:card_2].reverse.join}#{@cal[:card_3].reverse.join}#{@cal[:card_4].reverse.join}#{@cal[:card_5].reverse.join}"
-    span_data = @span[:span].gsub("\\", "")
+    span_data = @span[:span].to_s.gsub("\\", "")
     span_array = JSON.parse(span_data)
     @result = calculation(field.gsub("z",""),span_array.flatten)
     session[:field] = field.gsub("z","")
@@ -62,11 +62,6 @@ class SpanController < ApplicationController
     def span_params
       s_params = params.require(:span).permit(:name,:user_id,:high_pair,:low_pair,high_suit: [],
                                     low_suit: [],high_offsuit: [],low_offsuit:[])
-      s_params[:high_suit] = s_params[:high_suit].to_s
-      s_params[:low_suit] = s_params[:low_suit].to_s
-      s_params[:high_offsuit] = s_params[:high_offsuit].to_s
-      s_params[:low_offsuit] = s_params[:low_offsuit].to_s
-      s_params
     end
 
     def cal_params
