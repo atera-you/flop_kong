@@ -5,6 +5,7 @@ class SpanController < ApplicationController
   end
 
   def create
+    
     @span = current_user.spans.build(span_params)
     high_suit = JSON.parse(@span[:high_suit].gsub("\\",""))
     low_suit = JSON.parse(@span[:low_suit].gsub("\\",""))
@@ -59,8 +60,13 @@ class SpanController < ApplicationController
     
   private
     def span_params
-      params.require(:span).permit(:name,:user_id,:high_pair,:low_pair,high_suit: [],
+      s_params = params.require(:span).permit(:name,:user_id,:high_pair,:low_pair,high_suit: [],
                                     low_suit: [],high_offsuit: [],low_offsuit:[])
+      s_params[:high_suit] = s_params[:high_suit].to_s
+      s_params[:low_suit] = s_params[:low_suit].to_s
+      s_params[:high_offsuit] = s_params[:high_offsuit].to_s
+      s_params[:low_offsuit] = s_params[:low_offsuit].to_s
+      s_params
     end
 
     def cal_params
