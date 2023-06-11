@@ -96,7 +96,7 @@ class SpanController < ApplicationController
             num_sum << n + "h" + x + "h"
             num_sum << n + "i" + x + "i"
             num_sum << n + "j" + x + "j"
-            num_sum << "1111"
+            num_sum << ""
           end
   
         end
@@ -125,7 +125,7 @@ class SpanController < ApplicationController
             num_sum << n + "j" + x + "g"
             num_sum << n + "j" + x + "h"
             num_sum << n + "j" + x + "i"
-            num_sum << "1111"
+            num_sum << ""
           end
   
         end
@@ -149,7 +149,7 @@ class SpanController < ApplicationController
             num_sum << f + "h" + f + "i"
             num_sum << f + "h" + f + "j"
             num_sum << f + "i" + f + "j"
-            num_sum << "1111"
+            num_sum << ""
           end
           
         
