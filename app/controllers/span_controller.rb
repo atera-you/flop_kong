@@ -15,7 +15,7 @@ class SpanController < ApplicationController
     offsuit_sum = selection(high_offsuit,low_offsuit)
     span_data = []
     span_data = span_data.concat(pair(@span[:high_pair],@span[:low_pair]),suit(num_sum),offsuit(offsuit_sum))
-    @span[:span] = "[#{span_data}]"
+    @span[:span] = "[#{span_data.to_json}]"
     @span.save
     redirect_to user_path(current_user)
   end
@@ -96,6 +96,7 @@ class SpanController < ApplicationController
             num_sum << n + "h" + x + "h"
             num_sum << n + "i" + x + "i"
             num_sum << n + "j" + x + "j"
+            num_sum << "1111"
           end
   
         end
@@ -124,6 +125,7 @@ class SpanController < ApplicationController
             num_sum << n + "j" + x + "g"
             num_sum << n + "j" + x + "h"
             num_sum << n + "j" + x + "i"
+            num_sum << "1111"
           end
   
         end
@@ -147,6 +149,7 @@ class SpanController < ApplicationController
             num_sum << f + "h" + f + "i"
             num_sum << f + "h" + f + "j"
             num_sum << f + "i" + f + "j"
+            num_sum << "1111"
           end
           
         
